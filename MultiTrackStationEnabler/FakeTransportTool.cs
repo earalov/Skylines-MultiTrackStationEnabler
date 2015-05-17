@@ -9,7 +9,7 @@ namespace MultiTrackStationEnabler
 	{
 		public bool GetStopPosition(TransportInfo info, ushort segment, ushort building, ushort firstStop, ref Vector3 hitPos, out bool fixedPlatform)
 		{
-			bool alternateMode = Input.GetKey(KeyCode.LeftShift);
+			bool alternateMode = Input.GetKey(KeyCode.LeftShift) | Input.GetKey(KeyCode.RightShift);
 			fixedPlatform = false;
 			if (segment != 0)
 			{
