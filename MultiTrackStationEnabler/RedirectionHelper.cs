@@ -199,7 +199,7 @@ namespace MultiTrackStationEnabler
         public static void RedirectCalls(Type from, Type to, string methodName, bool privateVar = false)
 		{
 			var srcMethod = privateVar ? from.GetMethod (methodName, BindingFlags.NonPublic | BindingFlags.Instance) : from.GetMethod (methodName);
-			var destMethod = to.GetMethod (methodName);
+			var destMethod = privateVar ? to.GetMethod (methodName, BindingFlags.NonPublic | BindingFlags.Instance) : to.GetMethod (methodName);
 			RedirectCalls(srcMethod, destMethod);
 		}
     }
